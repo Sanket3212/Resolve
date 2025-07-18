@@ -1,0 +1,1 @@
+# Nuxt_Bug_Reporting
