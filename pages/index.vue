@@ -1,124 +1,92 @@
 <template>
-  <div class="min-h-dvh bg-gray-950 text-white flex items-center justify-center p-6 relative">
-    
-    <div
-      class="absolute bg-teal-500/20 w-96 h-96 rounded-full -top-20 -left-20 animate-pulse-slow filter blur-3xl"
-    ></div>
-    <div
-      class="absolute bg-green-500/20 w-[500px] h-[500px] rounded-full -bottom-40 -right-20 animate-pulse-slower filter blur-3xl"
-    ></div>
+  <div class="relative min-h-screen bg-[#0D0D0D] text-white overflow-x-hidden">
+    <!-- Animated background blobs -->
+    <div class="absolute bg-teal-400/10 w-72 h-72 rounded-full -top-16 -left-16 animate-pulse-slow blur-3xl" />
+    <div class="absolute bg-green-500/10 w-96 h-96 rounded-full -top-20 -right-32 animate-pulse-slow blur-3xl" />
+    <div class="absolute bg-teal-300/10 w-72 h-72 rounded-full -bottom-16 left-1/3 animate-pulse-slow blur-3xl" />
 
-    <div
-      class="pointer-events-none fixed w-64 h-64 bg-green-500 opacity-20 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 z-10"
-      :style="{ top: `${cursorY}px`, left: `${cursorX}px` }"
-    />
-
-    <div
-      class="w-full max-w-2xl text-center bg-black/20 backdrop-blur-lg border border-white/10 rounded-2xl p-8 sm:p-12 shadow-2xl z-20"
-    >
-      <h1
-        class="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-green-300 to-teal-400 bg-clip-text text-transparent animate-fade-in-up"
-        style="animation-delay: 0.2s"
-      >
-        Welcome to BugTracker
+    <!-- Hero Section -->
+    <div class="relative z-10 flex flex-col items-center justify-center px-6 pt-24 text-center space-y-8">
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r from-green-300 to-teal-400 bg-clip-text text-transparent">
+        Effortless Bug Tracking.<br class="hidden sm:inline" /> Seamless Project Flow.
       </h1>
-      <p
-        class="text-lg md:text-xl mb-10 text-gray-300 animate-fade-in-up"
-        style="animation-delay: 0.4s"
-      >
-        A seamless, role-based dashboard system built with Supabase and Nuxt 3.
+      <p class="max-w-2xl text-lg md:text-xl text-gray-300">
+        BugTracker is your team’s all-in-one solution for capturing, tracking, and squashing bugs—fast.
       </p>
-      <NuxtLink
-        to="/login"
-        class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 transition-all duration-300 px-8 py-4 rounded-xl font-bold text-gray-900 text-lg shadow-lg hover:shadow-green-500/30 hover:scale-105 animate-fade-in-up"
-        style="animation-delay: 0.6s"
-      >
-        <span>Get Started</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+      <div class="flex flex-wrap justify-center gap-4">
+        <NuxtLink
+          to="/register"
+          class="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 transition-all duration-300 px-10 py-5 rounded-xl font-bold text-gray-900 text-xl shadow-lg hover:shadow-green-500/30 hover:scale-105 group hover:-translate-y-0.5"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2.5"
-            d="M17 8l4 4m0 0l-4 4m4-4H3"
-          />
-        </svg>
-      </NuxtLink>
+          Get Started
+          <Icon name="carbon:arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </NuxtLink>
+        <NuxtLink
+          to="/login"
+          class="inline-flex items-center justify-center gap-2 border border-white/10 bg-white/5 hover:bg-white/10 px-10 py-5 rounded-xl font-semibold text-white text-xl hover:scale-105 transition-all"
+        >
+          Login
+        </NuxtLink>
+      </div>
     </div>
+
+    <!-- Feature Cards -->
+    <div class="relative z-10 mt-32 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+  <!-- Card 1: Dashboard -->
+  <div class="p-6 bg-gradient-to-br from-gray-900/40 to-black/10 rounded-2xl ring-1 ring-inset ring-white/10 transition-all hover:ring-green-400/20 hover:scale-[1.02] shadow-xl backdrop-blur-md">
+    <div class="flex items-center space-x-4 mb-4">
+      <div class="w-12 h-12 bg-green-400/10 rounded-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 3v6h-6V3h6zM20.25 3v6h-6V3h6zM20.25 14.25v6h-6v-6h6zM9.75 14.25v6h-6v-6h6z" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold text-teal-300">Intuitive Dashboard</h3>
+    </div>
+    <p class="text-sm text-gray-300 leading-relaxed">Visually track progress, assign issues, and get a clear overview of your project at a glance.</p>
+  </div>
+
+  <!-- Card 2: Roles -->
+  <div class="p-6 bg-gradient-to-br from-gray-900/40 to-black/10 rounded-2xl ring-1 ring-inset ring-white/10 transition-all hover:ring-green-400/20 hover:scale-[1.02] shadow-xl backdrop-blur-md">
+    <div class="flex items-center space-x-4 mb-4">
+      <div class="w-12 h-12 bg-green-400/10 rounded-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-3-3h-2m-4 5h-4v-2a4 4 0 014-4h0a4 4 0 014 4v2zM6 20h5v-2a3 3 0 00-3-3H6a3 3 0 00-3 3v2zM15 11a4 4 0 10-8 0 4 4 0 008 0z" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold text-teal-300">Role-Based Access</h3>
+    </div>
+    <p class="text-sm text-gray-300 leading-relaxed">Custom dashboards and permissions for developers, testers, and project admins.</p>
+  </div>
+
+  <!-- Card 3: Reports -->
+  <div class="p-6 bg-gradient-to-br from-gray-900/40 to-black/10 rounded-2xl ring-1 ring-inset ring-white/10 transition-all hover:ring-green-400/20 hover:scale-[1.02] shadow-xl backdrop-blur-md">
+    <div class="flex items-center space-x-4 mb-4">
+      <div class="w-12 h-12 bg-green-400/10 rounded-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 018 0v2m1 0a5 5 0 00-10 0v2h10v-2zM12 4v4m0 0l3-3m-3 3l-3-3" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold text-teal-300">Smart Reports</h3>
+    </div>
+    <p class="text-sm text-gray-300 leading-relaxed">Generate real-time reports to gain insights and prioritize what matters most.</p>
+  </div>
+</div>
+
+
+    <!-- Cursor Circle Effect -->
+    <div id="cursor" class="fixed w-24 h-24 rounded-full pointer-events-none z-50 bg-gradient-to-r from-green-500 via-teal-400 to-green-400 opacity-30 blur-2xl transition-transform duration-300"></div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-
-const cursorX = ref(0)
-const cursorY = ref(0)
-
-const updateCursor = (e) => {
-  cursorX.value = e.clientX
-  cursorY.value = e.clientY
-}
+import { onMounted } from 'vue';
 
 onMounted(() => {
-  window.addEventListener('mousemove', updateCursor)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('mousemove', updateCursor)
-})
+  const cursor = document.getElementById('cursor');
+  window.addEventListener('mousemove', (e) => {
+    if (cursor) {
+      cursor.style.transform = `translate(${e.clientX - 48}px, ${e.clientY - 48}px)`;
+    }
+  });
+});
 </script>
-
-<style>
-/* Add these animations to your global CSS or in the style tag */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-  opacity: 0; /* Start hidden */
-}
-
-@keyframes pulse-slow {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.2;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.3;
-  }
-}
-
-@keyframes pulse-slower {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.2;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 0.25;
-  }
-}
-
-.animate-pulse-slow {
-  animation: pulse-slow 10s infinite ease-in-out;
-}
-.animate-pulse-slower {
-  animation: pulse-slower 15s infinite ease-in-out;
-}
-</style>
